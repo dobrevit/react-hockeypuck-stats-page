@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { act } from "@testing-library/react";
 import { Container, Typography, Box } from "@mui/material";
 import RefreshControls from "./RefreshControls";
 // import SearchInput from "./SearchInput";
@@ -17,9 +16,7 @@ function MainLayout() {
 
   const fetchData = async function() {
     const fetchedData = await fetchPgpData();
-    act(() => {
-      setData(fetchedData);
-    });
+    setData(fetchedData);
   };
  
   useEffect(() => {
