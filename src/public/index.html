@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Hockeypuck OpenPGP Keyserver Statistics"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon.ico" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>Hockeypuck OpenPGP Keyserver Statistics</title>
+  </head>
+  <body>
+    <noscript>
+      <h1>Hockeypuck OpenPGP Keyserver Statistics</h1>
+      Taken at {{ .Now }}
+      <h2 id="settings">Settings</h2>
+      <table>
+        <tr><th>Hostname</th><td>{{ .Hostname }}</td></tr>
+        {{ if .Nodename }}<tr><th>Nodename</th><td>{{ .Nodename }}</td></tr>{{ end }}
+        <tr><th>Version</th><td>{{ .Version }}</td></tr>
+        {{ if .Contact }}<tr><th>Server Contact</th><td><a href="/pks/lookup?op=index&fingerprint=on&search={{ .Contact }}">{{ .Contact }}</a></td></tr>{{ end }}
+        <tr><th>HTTP</th><td>{{ .HTTPAddr }}</td></tr>
+        <tr><th>Recon</th><td>{{ .ReconAddr }}</td></tr>
+      </table>
+
+      <h3 id="gossip-peers">Gossip Peers</h3>
+      <table><tr><th>Name</th><th>HTTP</th><th>Recon</th></tr>
+      {{ range $peer := .Peers }}<tr><td>{{ $peer.Name }}</td><td><a href="http://{{ $peer.HTTPAddr }}/pks/lookup?op=stats">{{ $peer.HTTPAddr }}</a></td><td>{{ $peer.ReconAddr }}</td></tr>
+      {{ end }}</table>
+
+      <h2 id="statistics">Statistics</h2>
+      Total number of keys: {{ .Total }}
+
+      <h3 id="daily-histogram">Daily Histogram</h3>
+      <table><tr><th>Day</th><th>New Keys</th><th>Updated Keys</th></tr>
+      {{ range $stats := .Daily }}<tr><td>{{ day $stats.Time }}</td><td>{{ $stats.Inserted }}</td><td>{{ $stats.Updated }}</td></tr>
+      {{ end }}</table>
+
+      <h3 id="hourly-histogram">Hourly Histogram</h3>
+      <table><tr><th>Hour</th><th>New Keys</th><th>Updated Keys</th></tr>
+      {{ range $stats := .Hourly }}<tr><td>{{ hour $stats.Time }}</td><td>{{ $stats.Inserted }}</td><td>{{ $stats.Updated }}</td></tr>
+      {{ end }}</table>
+    </noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>
