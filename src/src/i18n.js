@@ -19,6 +19,7 @@ import translationNL from "./locales/nl/translation.json";
 import translationPL from "./locales/pl/translation.json";
 import translationPT from "./locales/pt/translation.json";
 import translationRU from "./locales/ru/translation.json";
+import translationSL from "./locales/sl/translation.json";
 import translationSR from "./locales/sr/translation.json";
 import translationSV from "./locales/sv/translation.json";
 import translationTR from "./locales/tr/translation.json";
@@ -73,6 +74,9 @@ const resources = {
   ru: {
     translation: translationRU,
   },
+  sl: {
+    translation: translationSL,
+  },
   sr: {
     translation: translationSR,
   },
@@ -87,10 +91,14 @@ const resources = {
   },
 };
 
+export function getPrimaryLanguage(language) {
+  return language.split('-')[0];
+}
+
 i18n
   .use(Backend)
-  .use(LanguageDetector)
   .use(initReactI18next)
+  .use(LanguageDetector)
   .init({
     resources,
     fallbackLng: "en",
@@ -99,5 +107,8 @@ i18n
       escapeValue: false,
     },
   });
+
+const detectedLanguage = i18n.language;
+i18n.changeLanguage(getPrimaryLanguage(detectedLanguage));
 
 export default i18n;

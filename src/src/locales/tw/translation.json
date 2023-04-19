@@ -21,5 +21,6 @@
     "No hourly data available.": "沒有每小時的資料可用",
     "No data available.": "沒有可用的資料",
     "Recon Address": "復原地址",
-    "HTTP Address": "HTTP 地址"
+    "HTTP Address": "HTTP 地址",
+    "Language": "語言"
 }

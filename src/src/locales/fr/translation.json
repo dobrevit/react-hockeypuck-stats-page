@@ -21,5 +21,6 @@
     "No hourly data available.": "Pas de données horaires disponibles.",
     "No data available.": "Pas de données disponibles.",
     "Recon Address": "Adresse de reconstruction",
-    "HTTP Address": "Adresse HTTP"
+    "HTTP Address": "Adresse HTTP",
+    "Language": "Langue"
 }

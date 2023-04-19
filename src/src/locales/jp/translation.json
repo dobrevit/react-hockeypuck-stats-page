@@ -21,5 +21,6 @@
     "No hourly data available.": "時間単位のデータはありません。",
     "No data available.": "データがありません。",
     "Recon Address": "再構築アドレス",
-    "HTTP Address": "HTTPアドレス"
+    "HTTP Address": "HTTPアドレス",
+    "Language": "言語"
 }

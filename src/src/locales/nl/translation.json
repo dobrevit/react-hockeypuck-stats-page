@@ -21,5 +21,6 @@
     "No hourly data available.": "Geen gegevens per uur beschikbaar.",
     "No data available.": "Geen gegevens beschikbaar.",
     "Recon Address": "Hersteladres",
-    "HTTP Address": "HTTP-adres"
+    "HTTP Address": "HTTP-adres",
+    "Language": "Taal"
 }

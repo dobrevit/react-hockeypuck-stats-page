@@ -21,5 +21,6 @@
     "No hourly data available.": "Δεν υπάρχουν διαθέσιμα ωριαία δεδομένα.",
     "No data available.": "Δεν υπάρχουν διαθέσιμα δεδομένα.",
     "Recon Address": "Διεύθυνση ανακατασκευής",
-    "HTTP Address": "Διεύθυνση HTTP"
+    "HTTP Address": "Διεύθυνση HTTP",
+    "Language": "Γλώσσα"
 }

@@ -21,5 +21,6 @@
     "No hourly data available.": "لا يوجد بيانات ساعية متاحة.",
     "No data available.": "لا توجد بيانات متاحة.",
     "Recon Address": "عنوان إعادة البناء",
-    "HTTP Address": "عنوان HTTP"
+    "HTTP Address": "عنوان HTTP",
+    "Language": "اللغة"
 }

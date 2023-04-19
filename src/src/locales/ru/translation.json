@@ -21,5 +21,6 @@
     "No hourly data available.": "Нет данных за час.",
     "No data available.": "Нет данных.",
     "Recon Address": "Адрес восстановления",
-    "HTTP Address": "HTTP-адрес"
+    "HTTP Address": "HTTP-адрес",
+    "Language": "Язык"
 }

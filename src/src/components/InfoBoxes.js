@@ -1,13 +1,13 @@
 // src/components/InfoBoxes.js
 import { Card, CardContent, Typography, Grid, Box } from "@mui/material";
 import { styled } from "@mui/system";
-import RefreshControls from "./RefreshControls";
+//import RefreshControls from "./RefreshControls";
 import { formatNumber } from "../utils/format";
 import { useTranslation } from "react-i18next";
 
 const { host } = window.location;
 
-function InfoBoxes({ data, onRefresh }) {
+function InfoBoxes({ data }) {
   const { t } = useTranslation();
   // check if data is available
   if (!data) {
@@ -44,11 +44,11 @@ function InfoBoxes({ data, onRefresh }) {
       <Grid  item xs={12} sm={6} md={3}>
         <InfoBox title={t("Data Generated")} value={new Date(now).toLocaleString()} />
       </Grid>
-      <Grid  item xs={12} sm={6} md={3}>
+      {/* <Grid  item xs={12} sm={6} md={3}>
         <InfoBox title={t("Controls")} value="">
 	        <RefreshControls onRefresh={onRefresh} autoRefreshInterval={60000} />
 	      </InfoBox>
-      </Grid>
+      </Grid> */}
     </Grid>
   );
 }
