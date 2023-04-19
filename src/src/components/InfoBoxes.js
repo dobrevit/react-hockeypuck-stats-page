@@ -1,7 +1,6 @@
 // src/components/InfoBoxes.js
 import { Card, CardContent, Typography, Grid, Box } from "@mui/material";
 import { styled } from "@mui/system";
-//import RefreshControls from "./RefreshControls";
 import { formatNumber } from "../utils/format";
 import { useTranslation } from "react-i18next";
 
@@ -29,7 +28,7 @@ function InfoBoxes({ data }) {
       </Grid>
       <Grid  item xs={12} sm={6} md={3}>
         <InfoBox title={t("Contact")} value="">
-          <a href={`http://${host}/pks/lookup?op=index&fingerprint=on&search=${contact}`}>{contact}</a>
+          <a href={`http://${host}/pks/lookup?op=index&fingerprint=on&search=${contact}`} aria-label={t("Contact the server administrator")}>{contact}</a>
 	      </InfoBox>
       </Grid>
       <Grid  item xs={12} sm={6} md={3}>
@@ -44,11 +43,6 @@ function InfoBoxes({ data }) {
       <Grid  item xs={12} sm={6} md={3}>
         <InfoBox title={t("Data Generated")} value={new Date(now).toLocaleString()} />
       </Grid>
-      {/* <Grid  item xs={12} sm={6} md={3}>
-        <InfoBox title={t("Controls")} value="">
-	        <RefreshControls onRefresh={onRefresh} autoRefreshInterval={60000} />
-	      </InfoBox>
-      </Grid> */}
     </Grid>
   );
 }
