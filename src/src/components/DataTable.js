@@ -21,7 +21,7 @@ function DataTable({ data }) {
         {data["peers"].map((row) => (
           <TableRow key={row.Name}>
             <TableCell>{row.Name}</TableCell>
-            <TableCell><a href={`http://${row.httpAddr}/pks/lookup?op=stats`}>{row.httpAddr}</a></TableCell>
+            <TableCell><a href={`http://${row.httpAddr}/pks/lookup?op=stats`} aria-label={`Visit ${row.name} peer`}>{row.httpAddr}</a></TableCell>
             <TableCell>{row.reconAddr}</TableCell>
             {/* Add more table cells for other fields */}
           </TableRow>
