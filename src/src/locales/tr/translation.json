@@ -21,5 +21,6 @@
     "No hourly data available.": "Saatlik veri mevcut değil.",
     "No data available.": "Veri mevcut değil.",
     "Recon Address": "Yeniden yapılandırma adresi",
-    "HTTP Address": "HTTP adresi"
+    "HTTP Address": "HTTP adresi",
+    "Language": "Dil"
 }

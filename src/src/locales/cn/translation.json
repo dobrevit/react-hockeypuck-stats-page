@@ -21,5 +21,6 @@
     "No hourly data available.": "没有小时数据可用",
     "No data available.": "没有可用数据",
     "Recon Address": "恢复地址",
-    "HTTP Address": "HTTP 地址"
+    "HTTP Address": "HTTP 地址",
+    "Language": "语言"
 }

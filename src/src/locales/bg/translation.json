@@ -21,5 +21,6 @@
     "No hourly data available.": "Няма налични данни за часовия интервал.",
     "No data available.": "Няма налични данни.",
     "Recon Address": "Адрес за съгласуване",
-    "HTTP Address": "HTTP адрес"
+    "HTTP Address": "HTTP адрес",
+    "Language": "Език"
 }

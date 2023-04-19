@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { MenuItem, FormControl, Select } from "@mui/material";
+import { MenuItem, FormControl, Select, InputLabel } from "@mui/material";
 import i18n from "i18next";
+import { useTranslation } from 'react-i18next';
 
 const LanguageSwitcher = () => {
+  const { t } = useTranslation();
   const [language, setLanguage] = useState(i18n.language || "en");
 
   const handleLanguageChange = (event) => {
@@ -13,6 +15,7 @@ const LanguageSwitcher = () => {
 
   return (
     <FormControl variant="outlined" size="small">
+      <InputLabel htmlFor="language-switcher">{t('Language')}</InputLabel>
       <Select value={language} onChange={handleLanguageChange}>
         <MenuItem value="ar">العربية</MenuItem>
         <MenuItem value="bg">Български</MenuItem>
@@ -30,6 +33,7 @@ const LanguageSwitcher = () => {
         <MenuItem value="pl">Polski</MenuItem>
         <MenuItem value="pt">Português</MenuItem>
         <MenuItem value="ru">Русский</MenuItem>
+        <MenuItem value="sl">Slovenščina</MenuItem>
         <MenuItem value="sr">Српски</MenuItem>
         <MenuItem value="sv">Svenska</MenuItem>
         <MenuItem value="tr">Türkçe</MenuItem>

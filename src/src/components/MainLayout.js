@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
-import { Container } from "@mui/material";
+import { act } from "@testing-library/react";
+import { Container, Typography, Box } from "@mui/material";
+import RefreshControls from "./RefreshControls";
 // import SearchInput from "./SearchInput";
 import DataTable from "./DataTable";
 import StatsTable from "./StatsTable";
@@ -15,7 +17,9 @@ function MainLayout() {
 
   const fetchData = async function() {
     const fetchedData = await fetchPgpData();
-    setData(fetchedData);
+    act(() => {
+      setData(fetchedData);
+    });
   };
  
   useEffect(() => {
@@ -23,10 +27,30 @@ function MainLayout() {
   }, []);
 
   return (
-    <Container>
-      <h1>{t("Page Title")}</h1><LanguageSwitcher />
+    <Container maxWidth="lg">
+      <Container>
+        <Box
+          display="flex"
+          paddingTop="10px"
+          flexDirection="column"
+          alignItems="flex-start"
+          justifyContent="space-between"
+          minHeight="60px"
+        >
+          <Box display="flex" flexDirection="row" justifyContent="space-between" width="100%">
+            <Typography variant="h4">{t("Page Title")}</Typography>
+            <Box display="flex" alignItems="center">
+              <Box marginRight={2}>
+                <LanguageSwitcher />
+              </Box>
+              <RefreshControls onRefresh={fetchData} autoRefreshInterval={60000} />
+            </Box>
+          </Box>
+          {/* Rest of your layout components */}
+        </Box>
+      </Container>
       <h2>{t("Settings")}</h2>
-      <InfoBoxes data={data} onRefresh={fetchData} />
+      <InfoBoxes data={data} />
       {/* <SearchInput onSearch={setSearchQuery} /> */}
       <h2>{t("Gossip Peers")}</h2>
       <DataTable data={data} />

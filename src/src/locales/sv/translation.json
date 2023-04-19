@@ -21,5 +21,6 @@
     "No hourly data available.": "Ingen timvis data tillgänglig.",
     "No data available.": "Ingen data tillgänglig.",
     "Recon Address": "Återställningsadress",
-    "HTTP Address": "HTTP-adress"
+    "HTTP Address": "HTTP-adress",
+    "Language": "Språk"
 }

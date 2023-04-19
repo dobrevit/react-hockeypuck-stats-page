@@ -4,7 +4,7 @@
     "Auto-refresh": "Automatikus frissítés",
     "Hostname": "Gazdagépnév",
     "Nodename": "Csomópontnév",
-    "Software Version": "Szoftver verzió",
+    "Software Version": "Szoftververzió",
     "Contact": "Kapcsolat",
     "Recon": "Újjáépítés",
     "Total Keys": "Összes kulcs",
@@ -21,5 +21,6 @@
     "No hourly data available.": "Nincsenek óránkénti adatok.",
     "No data available.": "Nincs adat.",
     "Recon Address": "Újjáépítési cím",
-    "HTTP Address": "HTTP cím"
+    "HTTP Address": "HTTP cím",
+    "Language": "Nyelv"
 }

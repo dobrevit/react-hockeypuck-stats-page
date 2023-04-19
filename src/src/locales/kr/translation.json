@@ -21,5 +21,6 @@
     "No hourly data available.": "시간별 데이터가 없습니다.",
     "No data available.": "데이터가 없습니다.",
     "Recon Address": "복구 주소",
-    "HTTP Address": "HTTP 주소"
+    "HTTP Address": "HTTP 주소",
+    "Language": "언어"
 }
