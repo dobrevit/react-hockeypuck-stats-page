@@ -14,6 +14,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
+Note that the localhost development server will be using [keyserver.dobrev.it](http://keyserver.dobrev.it:11371) as API endpoint. You can change this in [api.js](./src/src/api.js).
+
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\

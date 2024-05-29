@@ -49,13 +49,13 @@
       Total number of keys: {{ .Total }}
 
       <h3 id="daily-histogram">Daily Histogram</h3>
-      <table><tr><th>Day</th><th>New Keys</th><th>Updated Keys</th></tr>
-      {{ range $stats := .Daily }}<tr><td>{{ day $stats.Time }}</td><td>{{ $stats.Inserted }}</td><td>{{ $stats.Updated }}</td></tr>
+      <table><tr><th>Day</th><th>New Keys</th><th>Updated Keys</th><th>Removed Keys</th></tr>
+      {{ range $stats := .Daily }}<tr><td>{{ day $stats.Time }}</td><td>{{ $stats.Inserted }}</td><td>{{ $stats.Updated }}</td><td>{{ $stats.Removed }}</td></tr>
       {{ end }}</table>
 
       <h3 id="hourly-histogram">Hourly Histogram</h3>
-      <table><tr><th>Hour</th><th>New Keys</th><th>Updated Keys</th></tr>
-      {{ range $stats := .Hourly }}<tr><td>{{ hour $stats.Time }}</td><td>{{ $stats.Inserted }}</td><td>{{ $stats.Updated }}</td></tr>
+      <table><tr><th>Hour</th><th>New Keys</th><th>Updated Keys</th><th>Removed Keys</th></tr>
+      {{ range $stats := .Hourly }}<tr><td>{{ hour $stats.Time }}</td><td>{{ $stats.Inserted }}</td><td>{{ $stats.Updated }}</td><td>{{ $stats.Removed }}</td></tr>
       {{ end }}</table>
     </noscript>
     <div id="root"></div>

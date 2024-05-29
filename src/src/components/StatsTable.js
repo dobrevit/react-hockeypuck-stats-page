@@ -19,6 +19,7 @@ function StatsTable({ data }) {
           <TableCell>{t("Date")}</TableCell>
           <TableCell>{t("Inserted")}</TableCell>
           <TableCell>{t("Updated")}</TableCell>
+          <TableCell>{t("Removed")}</TableCell>
         </TableRow>
       </TableHead>
       <TableBody>
@@ -55,6 +56,7 @@ function Row({ row, hourlyData }) {
         </TableCell>
         <TableCell>{formatNumber(row.Inserted)}</TableCell>
         <TableCell>{formatNumber(row.Updated)}</TableCell>
+        <TableCell>{formatNumber(row.Removed)}</TableCell>
       </TableRow>
       {!hasHourlyData && (
         <TableRow>
@@ -78,6 +80,7 @@ function Row({ row, hourlyData }) {
                       <TableCell>{t("Time")}</TableCell>
                       <TableCell>{t("Inserted")}</TableCell>
                       <TableCell>{t("Updated")}</TableCell>
+                      <TableCell>{t("Removed")}</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
@@ -86,6 +89,7 @@ function Row({ row, hourlyData }) {
                         <TableCell>{new Date(hourlyRow.Time).toLocaleTimeString()}</TableCell>
                         <TableCell>{formatNumber(hourlyRow.Inserted)}</TableCell>
                         <TableCell>{formatNumber(hourlyRow.Updated)}</TableCell>
+                        <TableCell>{formatNumber(hourlyRow.Removed)}</TableCell>
                       </TableRow>
                     ))}
                   </TableBody>
