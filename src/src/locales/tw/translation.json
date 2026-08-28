@@ -23,5 +23,13 @@
     "No data available.": "沒有可用的資料",
     "Recon Address": "復原地址",
     "HTTP Address": "HTTP 地址",
-    "Language": "語言"
+    "Language": "語言",
+    "Recon Status": "復原狀態",
+    "Last Recon": "上次復原",
+    "Unknown": "未知",
+    "Visit the {{name}} peer": "造訪節點 {{name}}",
+    "Contact the server administrator": "聯絡伺服器管理員",
+    "Could not load statistics.": "無法載入統計資料。",
+    "Expand row": "展開列",
+    "Collapse row": "收合列"
 }

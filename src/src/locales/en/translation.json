@@ -23,5 +23,13 @@
     "No data available.": "No data available.",
     "Recon Address": "Recon Address",
     "HTTP Address": "HTTP Address",
-    "Language": "Language"
+    "Language": "Language",
+    "Recon Status": "Recon Status",
+    "Last Recon": "Last Recon",
+    "Unknown": "Unknown",
+    "Visit the {{name}} peer": "Visit the {{name}} peer",
+    "Contact the server administrator": "Contact the server administrator",
+    "Could not load statistics.": "Could not load statistics.",
+    "Expand row": "Expand row",
+    "Collapse row": "Collapse row"
 }

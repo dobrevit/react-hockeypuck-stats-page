@@ -1,14 +1,15 @@
-// src/components/StatsTable.js
 import { Table, TableBody, TableCell, TableHead, TableRow, IconButton, Box, Collapse } from "@mui/material";
 import { useState } from "react";
 import { KeyboardArrowDown, KeyboardArrowUp } from "@mui/icons-material";
-import { formatNumber } from "../utils/format";
+import { formatNumber, formatDate, formatTime, isSameDay } from "../utils/format";
 import { useTranslation } from "react-i18next";
 
 function StatsTable({ data }) {
   const { t } = useTranslation();
+  const daily = data?.daily;
+  const hourly = data?.hourly;
 
-  if (!Array.isArray(data.Hourly) || data.Hourly.length === 0 || !Array.isArray(data.Daily) || data.Daily.length === 0) {
+  if (!Array.isArray(daily) || daily.length === 0) {
     return <p>{t("No data available.")}</p>;
   }
 
@@ -23,8 +24,8 @@ function StatsTable({ data }) {
         </TableRow>
       </TableHead>
       <TableBody>
-        {data.Daily.map((row, index) => (
-          <Row key={index} row={row} hourlyData={data.Hourly} />
+        {daily.map((row) => (
+          <Row key={row.time.toISOString()} row={row} hourlyData={hourly ?? []} />
         ))}
       </TableBody>
     </Table>
@@ -35,45 +36,31 @@ function Row({ row, hourlyData }) {
   const [open, setOpen] = useState(false);
   const { t } = useTranslation();
 
-  const filteredHourlyData = hourlyData.filter(
-    (item) => new Date(item.Time).toLocaleDateString() === new Date(row.Time).toLocaleDateString()
-  );
-
+  const filteredHourlyData = hourlyData.filter((item) => isSameDay(item.time, row.time));
   const hasHourlyData = filteredHourlyData.length > 0;
 
   return (
     <>
       <TableRow>
         <TableCell>
-          {new Date(row.Time).toLocaleDateString()}
+          {formatDate(row.time)}
           <IconButton
-            aria-label="expand row"
+            aria-label={open ? t("Collapse row") : t("Expand row")}
             size="small"
             onClick={() => setOpen(!open)}
           >
             {open ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
           </IconButton>
         </TableCell>
-        <TableCell>{formatNumber(row.Inserted)}</TableCell>
-        <TableCell>{formatNumber(row.Updated)}</TableCell>
-        <TableCell>{formatNumber(row.Removed)}</TableCell>
+        <TableCell>{formatNumber(row.inserted)}</TableCell>
+        <TableCell>{formatNumber(row.updated)}</TableCell>
+        <TableCell>{formatNumber(row.removed)}</TableCell>
       </TableRow>
-      {!hasHourlyData && (
-        <TableRow>
-          <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-            <Collapse in={open} timeout="auto" unmountOnExit>
-              <Box margin={1}>
-                <p>{t("No hourly data available.")}</p>
-              </Box>
-            </Collapse>
-          </TableCell>
-        </TableRow>
-      )}
-      {hasHourlyData && (
-        <TableRow>
-          <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-            <Collapse in={open} timeout="auto" unmountOnExit>
-              <Box margin={1}>
+      <TableRow>
+        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={4}>
+          <Collapse in={open} timeout="auto" unmountOnExit>
+            <Box sx={{ margin: 1 }}>
+              {hasHourlyData ? (
                 <Table size="small">
                   <TableHead>
                     <TableRow>
@@ -84,21 +71,23 @@ function Row({ row, hourlyData }) {
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {filteredHourlyData.map((hourlyRow, index) => (
-                      <TableRow key={index}>
-                        <TableCell>{new Date(hourlyRow.Time).toLocaleTimeString()}</TableCell>
-                        <TableCell>{formatNumber(hourlyRow.Inserted)}</TableCell>
-                        <TableCell>{formatNumber(hourlyRow.Updated)}</TableCell>
-                        <TableCell>{formatNumber(hourlyRow.Removed)}</TableCell>
+                    {filteredHourlyData.map((hourlyRow) => (
+                      <TableRow key={hourlyRow.time.toISOString()}>
+                        <TableCell>{formatTime(hourlyRow.time)}</TableCell>
+                        <TableCell>{formatNumber(hourlyRow.inserted)}</TableCell>
+                        <TableCell>{formatNumber(hourlyRow.updated)}</TableCell>
+                        <TableCell>{formatNumber(hourlyRow.removed)}</TableCell>
                       </TableRow>
                     ))}
                   </TableBody>
                 </Table>
-              </Box>
-            </Collapse>
-          </TableCell>
-        </TableRow>
-      )}
+              ) : (
+                <p>{t("No hourly data available.")}</p>
+              )}
+            </Box>
+          </Collapse>
+        </TableCell>
+      </TableRow>
     </>
   );
 }

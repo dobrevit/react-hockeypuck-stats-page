@@ -23,5 +23,13 @@
     "No data available.": "Não há dados disponíveis.",
     "Recon Address": "Endereço de reconstrução",
     "HTTP Address": "Endereço HTTP",
-    "Language": "Idioma"
+    "Language": "Idioma",
+    "Recon Status": "Estado da reconstrução",
+    "Last Recon": "Última reconstrução",
+    "Unknown": "Desconhecido",
+    "Visit the {{name}} peer": "Visitar o par {{name}}",
+    "Contact the server administrator": "Contactar o administrador do servidor",
+    "Could not load statistics.": "Não foi possível carregar as estatísticas.",
+    "Expand row": "Expandir linha",
+    "Collapse row": "Recolher linha"
 }

@@ -23,5 +23,13 @@
     "No data available.": "Ingen data tillgänglig.",
     "Recon Address": "Återställningsadress",
     "HTTP Address": "HTTP-adress",
-    "Language": "Språk"
+    "Language": "Språk",
+    "Recon Status": "Återställningsstatus",
+    "Last Recon": "Senaste återställning",
+    "Unknown": "Okänd",
+    "Visit the {{name}} peer": "Besök noden {{name}}",
+    "Contact the server administrator": "Kontakta serveradministratören",
+    "Could not load statistics.": "Det gick inte att läsa in statistiken.",
+    "Expand row": "Expandera rad",
+    "Collapse row": "Fäll ihop rad"
 }

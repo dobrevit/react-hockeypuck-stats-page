@@ -23,5 +23,13 @@
     "No data available.": "Geen gegevens beschikbaar.",
     "Recon Address": "Hersteladres",
     "HTTP Address": "HTTP-adres",
-    "Language": "Taal"
+    "Language": "Taal",
+    "Recon Status": "Herstelstatus",
+    "Last Recon": "Laatste herstel",
+    "Unknown": "Onbekend",
+    "Visit the {{name}} peer": "Ga naar peer {{name}}",
+    "Contact the server administrator": "Neem contact op met de serverbeheerder",
+    "Could not load statistics.": "Kon de statistieken niet laden.",
+    "Expand row": "Rij uitklappen",
+    "Collapse row": "Rij inklappen"
 }

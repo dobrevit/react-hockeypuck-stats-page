@@ -23,5 +23,13 @@
     "No data available.": "Ni podatkov.",
     "Recon Address": "Naslov za obnovo",
     "HTTP Address": "HTTP naslov",
-    "Language": "Jezik"
+    "Language": "Jezik",
+    "Recon Status": "Stanje obnove",
+    "Last Recon": "Zadnja obnova",
+    "Unknown": "Neznano",
+    "Visit the {{name}} peer": "Obišči vozlišče {{name}}",
+    "Contact the server administrator": "Stopite v stik s skrbnikom strežnika",
+    "Could not load statistics.": "Statistike ni bilo mogoče naložiti.",
+    "Expand row": "Razširi vrstico",
+    "Collapse row": "Strni vrstico"
 }

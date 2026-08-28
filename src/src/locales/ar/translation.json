@@ -23,5 +23,13 @@
     "No data available.": "لا توجد بيانات متاحة.",
     "Recon Address": "عنوان إعادة البناء",
     "HTTP Address": "عنوان HTTP",
-    "Language": "اللغة"
+    "Language": "اللغة",
+    "Recon Status": "حالة إعادة البناء",
+    "Last Recon": "آخر إعادة بناء",
+    "Unknown": "غير معروف",
+    "Visit the {{name}} peer": "زيارة النظير {{name}}",
+    "Contact the server administrator": "الاتصال بمسؤول الخادم",
+    "Could not load statistics.": "تعذر تحميل الإحصائيات.",
+    "Expand row": "توسيع الصف",
+    "Collapse row": "طي الصف"
 }

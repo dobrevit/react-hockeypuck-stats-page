@@ -1,43 +1,44 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { MenuItem, FormControl, Select, InputLabel } from "@mui/material";
 import i18n from "i18next";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
+import { LANGUAGES, FALLBACK_LANGUAGE, getPrimaryLanguage } from "../i18n";
 
 const LanguageSwitcher = () => {
   const { t } = useTranslation();
-  const [language, setLanguage] = useState(i18n.language || "en");
+  // resolvedLanguage, not language: the detector reports the browser's full
+  // tag ("de-DE"), while the catalogue actually in use is the base one ("de").
+  // Seeding the control from the raw tag would leave it showing English while
+  // the page is in German, and an unsupported tag would blank it entirely.
+  const [language, setLanguage] = useState(() => {
+    const resolved = i18n.resolvedLanguage ?? getPrimaryLanguage(i18n.language);
+    return LANGUAGES.some(({ code }) => code === resolved) ? resolved : FALLBACK_LANGUAGE;
+  });
 
   const handleLanguageChange = (event) => {
-    const selectedLanguage = event.target.value;
-    setLanguage(selectedLanguage);
-    i18n.changeLanguage(selectedLanguage);
+    setLanguage(event.target.value);
+    i18n.changeLanguage(event.target.value);
   };
 
+  const label = t("Language");
+
   return (
-    <FormControl variant="outlined" size="small">
-      <InputLabel htmlFor="language-switcher">{t('Language')}</InputLabel>
-      <Select value={language} onChange={handleLanguageChange}>
-        <MenuItem value="ar">العربية</MenuItem>
-        <MenuItem value="bg">Български</MenuItem>
-        <MenuItem value="cn">简体中文</MenuItem>
-        <MenuItem value="de">Deutsch</MenuItem>
-        <MenuItem value="en">English</MenuItem>
-        <MenuItem value="es">Español</MenuItem>
-        <MenuItem value="fr">Français</MenuItem>
-        <MenuItem value="gr">Ελληνικά</MenuItem>
-        <MenuItem value="hu">Magyar</MenuItem>
-        <MenuItem value="it">Italiano</MenuItem>
-        <MenuItem value="jp">日本語</MenuItem>
-        <MenuItem value="kr">한국어</MenuItem>
-        <MenuItem value="nl">Nederlands</MenuItem>
-        <MenuItem value="pl">Polski</MenuItem>
-        <MenuItem value="pt">Português</MenuItem>
-        <MenuItem value="ru">Русский</MenuItem>
-        <MenuItem value="sl">Slovenščina</MenuItem>
-        <MenuItem value="sr">Српски</MenuItem>
-        <MenuItem value="sv">Svenska</MenuItem>
-        <MenuItem value="tr">Türkçe</MenuItem>
-        <MenuItem value="tw">繁體中文</MenuItem>
+    <FormControl variant="outlined" size="small" sx={{ minWidth: 140 }}>
+      <InputLabel id="language-switcher-label">{label}</InputLabel>
+      <Select
+        labelId="language-switcher-label"
+        id="language-switcher"
+        value={language}
+        // Required as well as the InputLabel: this is what cuts the gap in the
+        // outline for the floating label to sit in.
+        label={label}
+        onChange={handleLanguageChange}
+      >
+        {LANGUAGES.map(({ code, name }) => (
+          <MenuItem key={code} value={code}>
+            {name}
+          </MenuItem>
+        ))}
       </Select>
     </FormControl>
   );
