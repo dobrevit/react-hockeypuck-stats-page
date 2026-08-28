@@ -23,21 +23,37 @@ function DataTable({ data }) {
         </TableRow>
       </TableHead>
       <TableBody>
-        {peers.map((peer) => (
-          <TableRow key={peer.reconAddr || peer.name}>
-            <TableCell>{peer.name}</TableCell>
-            <TableCell>
-              <a href={peerStatsUrl(peer)} aria-label={t("Visit the {{name}} peer", { name: peer.name })}>
-                {peer.httpAddr}
-              </a>
-            </TableCell>
-            <TableCell>{peer.reconAddr}</TableCell>
-            <TableCell>
-              <PeerStatus peer={peer} />
-            </TableCell>
-            <TableCell>{formatDateTime(peer.lastIncomingRecon ?? peer.lastOutgoingRecon)}</TableCell>
-          </TableRow>
-        ))}
+        {peers.map((peer) => {
+          // A peer that advertises no HTTP address has nothing to link to.
+          // Rendering an anchor without an href would leave a dead element
+          // that reads as a link but cannot be focused or followed.
+          const statsUrl = peerStatsUrl(peer);
+
+          return (
+            <TableRow key={peer.reconAddr || peer.name}>
+              <TableCell>{peer.name}</TableCell>
+              <TableCell>
+                {statsUrl ? (
+                  <a
+                    href={statsUrl}
+                    aria-label={t("Visit the {{name}} peer", { name: peer.name })}
+                  >
+                    {peer.httpAddr}
+                  </a>
+                ) : (
+                  peer.httpAddr
+                )}
+              </TableCell>
+              <TableCell>{peer.reconAddr}</TableCell>
+              <TableCell>
+                <PeerStatus peer={peer} />
+              </TableCell>
+              <TableCell>
+                {formatDateTime(peer.lastIncomingRecon ?? peer.lastOutgoingRecon)}
+              </TableCell>
+            </TableRow>
+          );
+        })}
       </TableBody>
     </Table>
   );
