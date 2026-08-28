@@ -23,5 +23,13 @@
     "No data available.": "Nincs adat.",
     "Recon Address": "Újjáépítési cím",
     "HTTP Address": "HTTP cím",
-    "Language": "Nyelv"
+    "Language": "Nyelv",
+    "Recon Status": "Újjáépítés állapota",
+    "Last Recon": "Utolsó újjáépítés",
+    "Unknown": "Ismeretlen",
+    "Visit the {{name}} peer": "A(z) {{name}} partner megnyitása",
+    "Contact the server administrator": "Kapcsolatfelvétel a kiszolgáló üzemeltetőjével",
+    "Could not load statistics.": "A statisztikák betöltése sikertelen.",
+    "Expand row": "Sor kibontása",
+    "Collapse row": "Sor összecsukása"
 }

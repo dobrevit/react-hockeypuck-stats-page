@@ -23,5 +23,13 @@
     "No data available.": "Veri mevcut değil.",
     "Recon Address": "Yeniden yapılandırma adresi",
     "HTTP Address": "HTTP adresi",
-    "Language": "Dil"
+    "Language": "Dil",
+    "Recon Status": "Yeniden yapılandırma durumu",
+    "Last Recon": "Son yeniden yapılandırma",
+    "Unknown": "Bilinmiyor",
+    "Visit the {{name}} peer": "{{name}} eşini ziyaret et",
+    "Contact the server administrator": "Sunucu yöneticisiyle iletişime geçin",
+    "Could not load statistics.": "İstatistikler yüklenemedi.",
+    "Expand row": "Satırı genişlet",
+    "Collapse row": "Satırı daralt"
 }

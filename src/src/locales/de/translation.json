@@ -23,5 +23,13 @@
     "No data available.": "Keine Daten verfügbar.",
     "Recon Address": "Wiederherstellungsaddresse",
     "HTTP Address": "HTTP Addresse",
-    "Language": "Sprache"
+    "Language": "Sprache",
+    "Recon Status": "Wiederherstellungsstatus",
+    "Last Recon": "Letzte Wiederherstellung",
+    "Unknown": "Unbekannt",
+    "Visit the {{name}} peer": "Peer {{name}} aufrufen",
+    "Contact the server administrator": "Serveradministrator kontaktieren",
+    "Could not load statistics.": "Statistiken konnten nicht geladen werden.",
+    "Expand row": "Zeile ausklappen",
+    "Collapse row": "Zeile einklappen"
 }

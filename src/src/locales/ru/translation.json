@@ -23,5 +23,13 @@
     "No data available.": "Нет данных.",
     "Recon Address": "Адрес восстановления",
     "HTTP Address": "HTTP-адрес",
-    "Language": "Язык"
+    "Language": "Язык",
+    "Recon Status": "Состояние восстановления",
+    "Last Recon": "Последнее восстановление",
+    "Unknown": "Неизвестно",
+    "Visit the {{name}} peer": "Перейти к узлу {{name}}",
+    "Contact the server administrator": "Связаться с администратором сервера",
+    "Could not load statistics.": "Не удалось загрузить статистику.",
+    "Expand row": "Развернуть строку",
+    "Collapse row": "Свернуть строку"
 }

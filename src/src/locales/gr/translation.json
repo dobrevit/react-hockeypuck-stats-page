@@ -23,5 +23,13 @@
     "No data available.": "Δεν υπάρχουν διαθέσιμα δεδομένα.",
     "Recon Address": "Διεύθυνση ανακατασκευής",
     "HTTP Address": "Διεύθυνση HTTP",
-    "Language": "Γλώσσα"
+    "Language": "Γλώσσα",
+    "Recon Status": "Κατάσταση ανακατασκευής",
+    "Last Recon": "Τελευταία ανακατασκευή",
+    "Unknown": "Άγνωστο",
+    "Visit the {{name}} peer": "Επίσκεψη στον κόμβο {{name}}",
+    "Contact the server administrator": "Επικοινωνία με τον διαχειριστή του διακομιστή",
+    "Could not load statistics.": "Δεν ήταν δυνατή η φόρτωση των στατιστικών.",
+    "Expand row": "Ανάπτυξη γραμμής",
+    "Collapse row": "Σύμπτυξη γραμμής"
 }

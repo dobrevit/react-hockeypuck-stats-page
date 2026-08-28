@@ -23,5 +23,13 @@
     "No data available.": "Няма налични данни.",
     "Recon Address": "Адрес за съгласуване",
     "HTTP Address": "HTTP адрес",
-    "Language": "Език"
+    "Language": "Език",
+    "Recon Status": "Състояние на съгласуването",
+    "Last Recon": "Последно съгласуване",
+    "Unknown": "Неизвестно",
+    "Visit the {{name}} peer": "Посетете партньора {{name}}",
+    "Contact the server administrator": "Свържете се с администратора на сървъра",
+    "Could not load statistics.": "Статистиките не можаха да бъдат заредени.",
+    "Expand row": "Разгъване на реда",
+    "Collapse row": "Свиване на реда"
 }

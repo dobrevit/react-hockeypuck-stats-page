@@ -1,23 +1,25 @@
-# Use the official Node.js image as the base image
-FROM node:20-alpine
+# Build stage.
+FROM node:24-alpine AS build
 
-# Set the working directory in the container
 WORKDIR /app
 
-# Copy package.json and package-lock.json into the container
-COPY package*.json ./
+# .npmrc carries the supply-chain settings (7-day release quarantine and
+# ignore-scripts), so it has to land before anything is installed.
+COPY package.json package-lock.json .npmrc ./
 
-# Install the dependencies in the container
-RUN npm install
+# npm ci installs exactly the locked tree and fails if the lockfile has drifted
+# from package.json.
+RUN npm ci
 
-# Copy the rest of the application files into the container
 COPY . .
 
-# Build the application and install serve
-RUN npm run build && npm install -g serve
+RUN npm run build
 
-# Expose the port on which the application will run
+# Runtime stage. The output is a static bundle, so it needs a web server and
+# not the Node toolchain that produced it.
+FROM nginx:alpine AS runtime
+
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /app/build /usr/share/nginx/html
+
 EXPOSE 3000
-
-# Serve the built application
-CMD ["serve", "-s", "build", "-l", "3000"]

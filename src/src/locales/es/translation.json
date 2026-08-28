@@ -23,5 +23,13 @@
     "No data available.": "No hay datos disponibles.",
     "Recon Address": "Dirección de reconstrucción",
     "HTTP Address": "Dirección HTTP",
-    "Language": "Idioma"
+    "Language": "Idioma",
+    "Recon Status": "Estado de reconstrucción",
+    "Last Recon": "Última reconstrucción",
+    "Unknown": "Desconocido",
+    "Visit the {{name}} peer": "Visitar el nodo {{name}}",
+    "Contact the server administrator": "Contactar con el administrador del servidor",
+    "Could not load statistics.": "No se pudieron cargar las estadísticas.",
+    "Expand row": "Expandir fila",
+    "Collapse row": "Contraer fila"
 }

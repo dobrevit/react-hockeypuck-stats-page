@@ -23,5 +23,13 @@
     "No data available.": "Нема доступних података.",
     "Recon Address": "Адреса обнове",
     "HTTP Address": "HTTP адреса",
-    "Language": "Језик"
+    "Language": "Језик",
+    "Recon Status": "Статус обнове",
+    "Last Recon": "Последња обнова",
+    "Unknown": "Непознато",
+    "Visit the {{name}} peer": "Посети чвор {{name}}",
+    "Contact the server administrator": "Контактирајте администратора сервера",
+    "Could not load statistics.": "Није могуће учитати статистику.",
+    "Expand row": "Прошири ред",
+    "Collapse row": "Скупи ред"
 }

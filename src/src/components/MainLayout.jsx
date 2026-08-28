@@ -1,54 +1,79 @@
-import { useState, useEffect } from "react";
-import { Container, Typography, Box } from "@mui/material";
+import { useState, useEffect, useCallback } from "react";
+import { Container, Typography, Box, Alert } from "@mui/material";
 import RefreshControls from "./RefreshControls";
-// import SearchInput from "./SearchInput";
 import DataTable from "./DataTable";
 import StatsTable from "./StatsTable";
 import InfoBoxes from "./InfoBoxes";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useTranslation } from "react-i18next";
 import { fetchPgpData } from "../api";
+import { EMPTY_STATS } from "../utils/stats";
+
+const AUTO_REFRESH_INTERVAL_MS = 60000;
 
 function MainLayout() {
   const { t } = useTranslation();
-  //const [searchQuery, setSearchQuery] = useState("");
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(EMPTY_STATS);
+  const [error, setError] = useState(null);
 
-  const fetchData = async function() {
-    const fetchedData = await fetchPgpData();
-    setData(fetchedData);
-  };
- 
+  // A failed refresh keeps the last good document on screen rather than
+  // blanking the page, and says so above the tables.
+  const fetchData = useCallback(async () => {
+    try {
+      setData(await fetchPgpData());
+      setError(null);
+    } catch (cause) {
+      setError(cause.message);
+    }
+  }, []);
+
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [fetchData]);
 
   return (
     <Container maxWidth="lg">
       <Container>
+        {/* Box no longer hoists shorthand system props into sx, so layout has
+            to be written as sx or it is silently dropped. */}
         <Box
-          display="flex"
-          paddingTop="10px"
-          flexDirection="column"
-          alignItems="flex-start"
-          justifyContent="space-between"
-          minHeight="60px"
+          sx={{
+            display: "flex",
+            paddingTop: "10px",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            justifyContent: "space-between",
+            minHeight: "60px",
+          }}
         >
-          <Box display="flex" flexDirection="row" justifyContent="space-between" width="100%">
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              width: "100%",
+            }}
+          >
             <Typography variant="h4">{t("Page Title")}</Typography>
-            <Box display="flex" alignItems="center">
-              <Box marginRight={2}>
+            <Box sx={{ display: "flex", alignItems: "center" }}>
+              <Box sx={{ marginRight: 2 }}>
                 <LanguageSwitcher />
               </Box>
-              <RefreshControls onRefresh={fetchData} autoRefreshInterval={60000} />
+              <RefreshControls
+                onRefresh={fetchData}
+                autoRefreshInterval={AUTO_REFRESH_INTERVAL_MS}
+              />
             </Box>
           </Box>
-          {/* Rest of your layout components */}
         </Box>
       </Container>
+      {error && (
+        <Alert severity="error" sx={{ marginTop: 1 }}>
+          {t("Could not load statistics.")} {error}
+        </Alert>
+      )}
       <h2>{t("Settings")}</h2>
       <InfoBoxes data={data} />
-      {/* <SearchInput onSearch={setSearchQuery} /> */}
       <h2>{t("Gossip Peers")}</h2>
       <DataTable data={data} />
       <h2>{t("Statistics")}</h2>

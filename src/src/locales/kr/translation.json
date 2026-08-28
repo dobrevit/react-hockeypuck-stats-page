@@ -23,5 +23,13 @@
     "No data available.": "데이터가 없습니다.",
     "Recon Address": "복구 주소",
     "HTTP Address": "HTTP 주소",
-    "Language": "언어"
+    "Language": "언어",
+    "Recon Status": "복구 상태",
+    "Last Recon": "마지막 복구",
+    "Unknown": "알 수 없음",
+    "Visit the {{name}} peer": "{{name}} 피어 방문",
+    "Contact the server administrator": "서버 관리자에게 문의",
+    "Could not load statistics.": "통계를 불러올 수 없습니다.",
+    "Expand row": "행 펼치기",
+    "Collapse row": "행 접기"
 }

@@ -23,5 +23,13 @@
     "No data available.": "没有可用数据",
     "Recon Address": "恢复地址",
     "HTTP Address": "HTTP 地址",
-    "Language": "语言"
+    "Language": "语言",
+    "Recon Status": "恢复状态",
+    "Last Recon": "上次恢复",
+    "Unknown": "未知",
+    "Visit the {{name}} peer": "访问节点 {{name}}",
+    "Contact the server administrator": "联系服务器管理员",
+    "Could not load statistics.": "无法加载统计数据。",
+    "Expand row": "展开行",
+    "Collapse row": "收起行"
 }
